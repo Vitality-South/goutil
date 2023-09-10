@@ -1,0 +1,2 @@
+# goutil
+Go utility packages
