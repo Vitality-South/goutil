@@ -62,7 +62,7 @@ func DefaultHTTPErrorHeaders() http.Header {
 	return headers
 }
 
-// DefaultHTTPErrorHeadersForJSON returns a secure by default collection of
+// JSONHTTPHeaders returns a secure by default collection of
 // recommended HTTP response headers intended for user privacy and security.
 //
 // DefaultHTTPHeaders() are used and modified as such:
@@ -71,7 +71,7 @@ func DefaultHTTPErrorHeaders() http.Header {
 //
 // All headers from DefaultHTTPHeaders are returned along with the
 // modifications above.
-func DefaultHTTPErrorHeadersForJSON() http.Header {
+func JSONHTTPHeaders() http.Header {
 	headers := DefaultHTTPHeaders()
 	headers.Set("Content-Type", "application/json; charset=utf-8")
 
