@@ -6,6 +6,15 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 )
 
+// WebsocketAPILambdaResponse is a type suitable for use as a return type in a
+// Lambda function for API Gateway Websocket API.
+//
+// The API Gateway Websocket API expects a 200 series status code on success
+// and non-200 series status (such as 40x or 50x) for errors.
+type WebsocketAPIResponse struct {
+	StatusCode int `json:"statusCode"`
+}
+
 // RequestBody returns the body and properly base64 decodes it if necessary.
 func RequestBody(isBase64Encoded bool, body string) (string, error) {
 	if isBase64Encoded {
