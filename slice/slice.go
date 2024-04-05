@@ -191,29 +191,6 @@ func EqualUnordered[T comparable](a, b []T) bool {
 	return true
 }
 
-// RemoveDuplicates returns a new slice with duplicate values from the input slice. A
-//
-// If "sl" is nil, nil is returned.
-func RemoveDuplicates(sl []int) []int {
-	if sl == nil {
-		return nil
-	}
-
-	list := []int{}
-
-	keys := make(map[int]bool)
-
-	for _, s := range sl {
-		if _, exists := keys[s]; !exists {
-			keys[s] = true
-
-			list = append(list, s)
-		}
-	}
-
-	return list
-}
-
 // Deduplicate returns a new slice with duplicates removed from the input slice
 // in. The order of unique elements in the output slice matches their first
 // occurrence in the input slice. Elements in the slice must be comparable.
