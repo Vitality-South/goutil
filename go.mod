@@ -3,7 +3,7 @@ module github.com/Vitality-South/goutil
 go 1.22.1
 
 require (
-	github.com/aws/aws-lambda-go v1.46.0
+	github.com/aws/aws-lambda-go v1.47.0
 	github.com/microcosm-cc/bluemonday v1.0.26
 	golang.org/x/exp v0.0.0-20240325151524-a685a6edb6d8
 )
