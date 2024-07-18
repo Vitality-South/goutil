@@ -214,6 +214,25 @@ func Deduplicate[T comparable](in []T) []T {
 	return out
 }
 
+// RemoveElement returns a copy of slice in with the provided element removed.
+// Elements in the slice must be comparable.
+//
+// Example usage:
+//
+//	numbers := []int{1, 2, 3, 4, 5}
+//	RemoveElement(numbers, 3) // Returns: []int{1, 2, 4, 5}
+func RemoveElement[T comparable](in []T, elem T) []T {
+	var out []T
+
+	for _, v := range in {
+		if v != elem {
+			out = append(out, v)
+		}
+	}
+
+	return out
+}
+
 // ContainsDuplicates returns true if the slice contains duplicate elements.
 func ContainsDuplicates[T comparable](in []T) bool {
 	seen := make(map[T]bool)
