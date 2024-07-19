@@ -40,6 +40,20 @@ func Contains[T comparable](in []T, val T) bool {
 	return false
 }
 
+// ContainsFunc returns true if the slice in contains an element that satisfies
+// f(T), and false otherwise.
+//
+// # Empty or nil slice always returns false.
+func ContainsFunc[T any](in []T, f func(T) bool) bool {
+	for _, v := range in {
+		if f(v) {
+			return true
+		}
+	}
+
+	return false
+}
+
 // Filter returns a new slice holding only the elements of in that match the
 // predicate fn.
 // The order of elements in the input slice is preserved in the output slice.
