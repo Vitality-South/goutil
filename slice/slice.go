@@ -247,6 +247,26 @@ func RemoveElement[T comparable](in []T, elem T) []T {
 	return out
 }
 
+// RemoveElementFunc returns a copy of slice in where any element that
+// satisfies f(T) is removed.
+//
+// Example usage:
+//
+//		numbers := []int{1, 2, 3, 4, 5}
+//		RemoveElementFunc(numbers, func(n int) bool { return n == 3 })
+//	 Returns: []int{1, 2, 4, 5}
+func RemoveElementFunc[T any](in []T, f func(T) bool) []T {
+	var out []T
+
+	for _, v := range in {
+		if !f(v) {
+			out = append(out, v)
+		}
+	}
+
+	return out
+}
+
 // ContainsDuplicates returns true if the slice contains duplicate elements.
 func ContainsDuplicates[T comparable](in []T) bool {
 	seen := make(map[T]bool)
